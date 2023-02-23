@@ -1,0 +1,19 @@
+<h1><%= @list.name %></h1>
+
+<ul>
+  <% if @list.movies.empty? %>
+    <li><em>No movie in this list yet</em></li>
+   <% else %>
+    <% @list.bookmarks.each do |bookmark| %>
+      <li><%= bookmark.movie.title %>
+      <%= bookmark.comment %>
+      <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+      </li>
+    <% end %>
+  <% end %>
+  <li><%= link_to "Add a movie", new_list_bookmark_path(@list) %></li>
+</ul>
+
+<%= link_to "Back to the lists", lists_path %>

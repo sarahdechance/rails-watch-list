@@ -1,9 +1,9 @@
-<div class="card-category"
-  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('o5igrvk28ukkxerzuvpl', height: 300, crop: :fill %>)">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dufw0hmas/image/upload/v1677240361/o5igrvk28ukkxerzuvpl.jpg')">
   <div class="container">
     <h1>Create your own movie lists</h1>
   </div>
 </div>
+
 
 
 <ul style="list-style: none">
@@ -11,7 +11,8 @@
 
     <div class="cards">
       <% @lists.each do |list| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://imgsrc.cineserie.com/2017/02/Filmandclapboard.jpg?ver=1)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url(<%= list.image_url ? cl_image_path(list.image_url, height: 300, crop: :fill) : 'https://imgsrc.cineserie.com/2017/02/Filmandclapboard.jpg?ver=1'%>)">
           <li>
           <h2><%= link_to list.name, list_path(list) %></h2>
           <p><em><%= list.movies.count %> movie(s)</em></p>

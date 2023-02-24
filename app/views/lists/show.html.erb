@@ -1,4 +1,9 @@
-<h1><%= @list.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url(<%= @list.image_url ? cl_image_path(@list.image_url, height: 300, crop: :fit) : 'https://imgsrc.cineserie.com/2017/02/Filmandclapboard.jpg?ver=1'%>)">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
 
 <ul>
   <% if @list.movies.empty? %>

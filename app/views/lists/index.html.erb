@@ -1,16 +1,24 @@
-<div class="banner" style="background-image: url(https://www.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_7112/salle-de-cin%C3%A9ma-%7C-630x405-%7C-%C2%A9-fotolia-he2/12344768-1-fre-FR/Salle-de-cin%C3%A9ma-%7C-630x405-%7C-%C2%A9-Fotolia-he2.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://img.freepik.com/free-photo/rows-red-seats-theater_53876-64710.jpg);">
   <div class="container">
-    <h1>All my lists :</h1>
+    <h1>Create your own movie lists</h1>
   </div>
 </div>
 
 
-<ul>
-  <% @lists.each do |list| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <li><%= link_to list.name, list_path(list) %> - <em><%= list.movies.count %> movie(s)</li></em>
+<ul style="list-style: none">
+  <div class="container">
+
+    <div class="cards">
+      <% @lists.each do |list| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://imgsrc.cineserie.com/2017/02/Filmandclapboard.jpg?ver=1)">
+          <li>
+          <h2><%= link_to list.name, list_path(list) %></h2>
+          <p><em><%= list.movies.count %> movie(s)</em></p>
+          </li>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </ul>
 
 <%= link_to "Add a new list", new_list_path %>
